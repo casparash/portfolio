@@ -1,50 +1,6 @@
-/*"use client";
-import { Canvas, useFrame } from "@react-three/fiber";
-import { useThree } from "@react-three/fiber";
-import { Environment } from "@react-three/drei";
-import { useRef } from "react";
-import { Mesh } from "three";
-
-function Sphere() {
-  const { viewport } = useThree();
-  const size = viewport.width / 4;
-  const meshRef = useRef<Mesh>(null);
-  useFrame((state, delta) => {
-    if (meshRef.current) {
-      meshRef.current.rotation.y += delta * 0.6; // slow rotation around Y-axis
-      meshRef.current.rotation.x += delta * 0.1; // optional subtle X-axis rotation
-    }
-  });
-  return (
-    <mesh
-      ref={meshRef}
-      position={[viewport.width / 2.5, -viewport.height / 2.5, -5]}
-      scale={size * 1.5}
-    >
-      <sphereGeometry args={[1, 64, 64]} />
-      <meshStandardMaterial color="#C0C0C0" metalness={1} roughness={0.2} />
-    </mesh>
-  );
-}
-
-export default function TestSpherePage() {
-  return (
-    <main className="h-screen w-screen">
-      <Canvas camera={{ position: [0, 0, 10], fov: 50 }}>
-        <ambientLight intensity={0.5} />
-        <directionalLight position={[5, 5, 5]} />
-        <Sphere />
-        <Environment preset="studio" />
-      </Canvas>
-    </main>
-  );
-}
-*/
-
 "use client";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useThree } from "@react-three/fiber";
-import { Environment } from "@react-three/drei";
 import { useRef } from "react";
 import { Mesh } from "three";
 
@@ -56,18 +12,9 @@ function Sphere() {
   useFrame((state, delta) => {
     if (meshRef.current) {
       // Subtle glitchy rotation
-      const glitchX = Math.random() > 0.98 ? (Math.random() - 0.5) * 0.02 : 0;
-      const glitchY = Math.random() > 0.97 ? (Math.random() - 0.5) * 0.03 : 0;
+      const glitchY = Math.random() > 0.997 ? (Math.random() - 0.5) * 0.03 : 0;
 
-      meshRef.current.rotation.y += delta * 0.3 + glitchY;
-      meshRef.current.rotation.x += delta * 0.05 + glitchX;
-
-      // Very subtle float with occasional micro-glitch
-      const baseY = -viewport.height / 2.5;
-      const microGlitch =
-        Math.random() > 0.995 ? (Math.random() - 0.5) * 0.05 : 0;
-      meshRef.current.position.y =
-        baseY + Math.sin(state.clock.elapsedTime * 0.4) * 0.1 + microGlitch;
+      meshRef.current.rotation.y += delta * -0.02 + glitchY;
     }
   });
 
@@ -170,33 +117,80 @@ export default function ChromeSpherePortfolio() {
         .scan-line {
           position: absolute;
           width: 100%;
-          height: 1px;
+          height: 2px;
           background: linear-gradient(
             90deg,
             transparent,
-            rgba(0, 255, 65, 0.3),
+            rgba(0, 255, 65, 0.6),
             transparent
           );
-          animation: scan 4s infinite ease-in-out;
+          box-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
+          animation: scan 6s infinite ease-in-out;
+          z-index: 15;
         }
 
         @keyframes scan {
           0%,
           90%,
           100% {
-            top: -1px;
+            top: -2px;
             opacity: 0;
           }
-          10% {
+          5% {
             opacity: 1;
           }
           50% {
             top: 50%;
-            opacity: 0.5;
+            opacity: 0.8;
           }
-          80% {
+          85% {
             top: 100%;
             opacity: 0;
+          }
+        }
+
+        /* Text highlight effect when scan line passes over */
+        .text-scanline-effect {
+          position: relative;
+        }
+
+        .text-scanline-effect::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(0, 255, 65, 0.1),
+            transparent
+          );
+          opacity: 0;
+          animation: text-scan 6s infinite ease-in-out;
+          pointer-events: none;
+        }
+
+        @keyframes text-scan {
+          0%,
+          90%,
+          100% {
+            opacity: 0;
+            transform: translateY(-100px);
+          }
+          5% {
+            opacity: 0;
+            transform: translateY(-50px);
+          }
+          48%,
+          52% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+          85% {
+            opacity: 0;
+            transform: translateY(50px);
           }
         }
       `}</style>
