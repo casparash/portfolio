@@ -59,6 +59,7 @@ export default function HomePage() {
             <a
               className="font-mono font-light hover:text-gray-400 cursor-pointer transition-colors duration-500"
               href="https://www.linkedin.com/in/caspar-ashworth-2058ba253/"
+              target="_blank"
             >
               LinkedIn
             </a>
@@ -76,10 +77,4 @@ export default function HomePage() {
       </div>
     </div>
   );
-}
-function useSpring(arg0: {
-  position: number[]; // default center
-  config: { mass: number; tension: number; friction: number };
-}): { position: any } {
-  throw new Error("Function not implemented.");
 }
