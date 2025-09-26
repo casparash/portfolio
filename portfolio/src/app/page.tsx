@@ -40,11 +40,28 @@ export default function HomePage() {
       <div className="absolute top-30 right-40 z-10 text-right">
         {activeSection === "projects" && (
           <div>
-            <h2 className="font-mono font-light text-xl">Projects</h2>
-            <p>
-              Here you can showcase your recent work, maybe with links or
-              images.
+            <h2 className="font-mono font-light text-2xl font-semibold">
+              Projects
+            </h2>
+            <p className="font-mono font-light">
+              Currently adapting previous projects to be linked to here.
             </p>
+          </div>
+        )}
+      </div>
+
+      <div className="absolute bottom-30 left-40 z-10">
+        {activeSection === "contact" && (
+          <div>
+            <h2 className="font-mono font-light text-2xl font-semibold">
+              Contact Me
+            </h2>
+            <a
+              className="font-mono font-light hover:text-gray-400 cursor-pointer transition-colors duration-500"
+              href="https://www.linkedin.com/in/caspar-ashworth-2058ba253/"
+            >
+              LinkedIn
+            </a>
           </div>
         )}
       </div>
