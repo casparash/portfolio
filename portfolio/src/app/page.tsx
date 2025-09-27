@@ -2,6 +2,7 @@
 import { Canvas } from "@react-three/fiber";
 import Sphere from "./components/sphere";
 import { useState } from "react";
+import clsx from "clsx";
 
 export default function HomePage() {
   const [activeSection, setActiveSection] = useState<
@@ -19,19 +20,28 @@ export default function HomePage() {
       <div className="absolute top-30 left-41 z-10 font-mono font-light text-xl">
         <button
           onClick={() => setActiveSection("home")}
-          className="absolute top-25 hover:text-gray-400 cursor-pointer transition-colors duration-500"
+          className={clsx(
+            "absolute top-25 hover:text-gray-400 cursor-pointer transition-colors duration-500",
+            activeSection === "home" ? "border-b-2 border-gray-400" : ""
+          )}
         >
           Home
         </button>
         <button
           onClick={() => setActiveSection("projects")}
-          className="absolute top-33 hover:text-gray-400 cursor-pointer transition-colors duration-500"
+          className={clsx(
+            "absolute top-33 hover:text-gray-400 cursor-pointer transition-colors duration-500",
+            activeSection === "projects" ? "border-b-2 border-gray-400" : ""
+          )}
         >
           Projects
         </button>
         <button
           onClick={() => setActiveSection("contact")}
-          className="absolute top-41 hover:text-gray-400 cursor-pointer transition-colors duration-500"
+          className={clsx(
+            "absolute top-41 hover:text-gray-400 cursor-pointer transition-colors duration-500",
+            activeSection === "contact" ? "border-b-2 border-gray-400" : ""
+          )}
         >
           Contact
         </button>
