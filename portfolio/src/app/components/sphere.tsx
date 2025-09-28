@@ -5,19 +5,26 @@ import { Mesh, Vector3 } from "three";
 
 export default function Sphere({
   section,
+  isMobile,
 }: {
   section: "home" | "projects" | "contact";
+  isMobile: boolean;
 }) {
   const { viewport } = useThree();
   const size = viewport.width / 4;
   const meshRef = useRef<Mesh>(null);
 
-  const basePos = useMemo(
-    () => new Vector3(viewport.width / 2.5, -viewport.height / 2.5, -5),
-    [viewport]
-  );
+  const basePos = useMemo(() => {
+    if (isMobile) {
+      return new Vector3(0, 0, -5);
+    }
+    return new Vector3(viewport.width / 2.5, -viewport.height / 2.5, -5);
+  }, [viewport, isMobile]);
 
   const offset = useMemo(() => {
+    if (isMobile) {
+      return new Vector3(0, 0, 0);
+    }
     switch (section) {
       case "projects":
         return new Vector3(-14, -4, 0);
@@ -26,7 +33,7 @@ export default function Sphere({
       default:
         return new Vector3(0, 0, 0);
     }
-  }, [section]);
+  }, [section, isMobile]);
 
   const target = useMemo(() => basePos.clone().add(offset), [basePos, offset]);
 

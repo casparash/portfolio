@@ -1,7 +1,7 @@
 "use client";
 import { Canvas } from "@react-three/fiber";
 import Sphere from "./components/sphere";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import clsx from "clsx";
 
 export default function HomePage() {
@@ -9,6 +9,21 @@ export default function HomePage() {
   const [activeSection, setActiveSection] = useState<
     "home" | "projects" | "contact"
   >("home");
+
+  //State to track if on mobile
+  const [isMobile, setIsMobile] = useState(false);
+
+  //Check for mobile screen size
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   return (
     <div className="relative h-screen w-screen bg-grey">
@@ -106,7 +121,7 @@ export default function HomePage() {
           camera={{ position: [0, 0, 10], fov: 50 }}
           gl={{ alpha: true, antialias: true }}
         >
-          <Sphere section={activeSection} />
+          <Sphere section={activeSection} isMobile={isMobile} />
         </Canvas>
       </div>
     </div>
