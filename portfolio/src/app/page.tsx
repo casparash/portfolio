@@ -47,14 +47,19 @@ export default function HomePage() {
         </button>
       </div>
 
-      <div className="absolute top-30 right-40 z-10 text-right">
+      <div className="absolute top-30 right-40 z-10 text-right font-mono font-light">
         {activeSection === "projects" && (
           <div>
-            <h2 className="font-mono font-light text-2xl font-semibold">
-              Projects
-            </h2>
-            <p className="font-mono font-light">
-              Currently adapting previous projects to be linked to here.
+            <h2 className="text-2xl font-semibold">Projects</h2>
+            <a
+              className="text-2xl hover:text-gray-400 cursor-pointer transition-colors duration-500"
+              href="https://github.com/casparash/University-FYP"
+              target="_blank"
+            >
+              University FYP
+            </a>
+            <p className="text-sm">
+              Python-based sport-specific workout plan generator.
             </p>
           </div>
         )}
