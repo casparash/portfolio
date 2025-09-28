@@ -12,14 +12,13 @@ export default function HomePage() {
 
   return (
     <div className="relative h-screen w-screen bg-grey">
-      //Title
       <div className="absolute top-30 left-40 z-10 font-mono font-light text-5xl">
         <h1>Caspar Ashworth</h1>
         <p className="absolute left-2 text-sm text-gray-400 tracking-wide">
           Computer Science Graduate
         </p>
       </div>
-      //Page buttons
+
       <div className="absolute top-30 left-41 z-10 font-mono font-light text-xl">
         <button
           onClick={() => setActiveSection("home")}
@@ -49,7 +48,7 @@ export default function HomePage() {
           Contact
         </button>
       </div>
-      //Projects page
+
       <div className="absolute top-30 right-40 z-10 text-right font-mono font-light">
         {activeSection === "projects" && (
           <div>
@@ -67,7 +66,7 @@ export default function HomePage() {
           </div>
         )}
       </div>
-      //Contact page
+
       <div className="absolute bottom-30 left-40 z-10">
         {activeSection === "contact" && (
           <div>
@@ -84,7 +83,7 @@ export default function HomePage() {
           </div>
         )}
       </div>
-      //Adding sphere
+
       <div className="absolute inset-0 z-0">
         <Canvas
           camera={{ position: [0, 0, 10], fov: 50 }}
