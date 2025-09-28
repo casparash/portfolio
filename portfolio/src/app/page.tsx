@@ -58,7 +58,7 @@ export default function HomePage() {
               href="https://github.com/casparash/University-FYP"
               target="_blank"
             >
-              University FYP Test
+              University FYP
             </a>
             <p className="text-sm">
               Python-based sport-specific workout plan generator.
