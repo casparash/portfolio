@@ -26,7 +26,7 @@ export default function HomePage() {
 
       <div
         className="absolute z-10 font-mono font-light text-lg sm:text-xl
-    flex gap-6 top-16 left-1/2 -translate-x-1/2
+    flex justify-center gap-6 top-16 left-1/2 -translate-x-1/2
     sm:top-30 sm:left-41 sm:translate-x-0"
       >
         <button
@@ -60,7 +60,7 @@ export default function HomePage() {
 
       <div
         className="absolute z-10 font-mono font-light
-    text-center top-1/3 left-1/2 -translate-x-1/2
+    text-center top-1/2 left-1/2 -translate-x-1/2
     sm:text-right sm:top-30 sm:right-40 sm:left-auto sm:translate-x-0"
       >
         {activeSection === "projects" && (
