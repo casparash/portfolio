@@ -12,14 +12,23 @@ export default function HomePage() {
 
   return (
     <div className="relative h-screen w-screen bg-grey">
-      <div className="absolute top-30 left-40 z-10 font-mono font-light text-5xl">
+      <div
+        className="absolute z-10 font-mono font-light
+    text-3xl sm:text-5xl
+    top-4 left-1/2 -translate-x-1/2 text-center
+    sm:top-30 sm:left-40 sm:translate-x-0 sm:text-left"
+      >
         <h1>Caspar Ashworth</h1>
         <p className="absolute left-2 text-sm text-gray-400 tracking-wide">
           Computer Science Graduate
         </p>
       </div>
 
-      <div className="absolute top-30 left-41 z-10 font-mono font-light text-xl">
+      <div
+        className="absolute z-10 font-mono font-light text-lg sm:text-xl
+    flex gap-6 top-16 left-1/2 -translate-x-1/2
+    sm:top-30 sm:left-41 sm:translate-x-0"
+      >
         <button
           onClick={() => setActiveSection("home")}
           className={clsx(
@@ -49,7 +58,11 @@ export default function HomePage() {
         </button>
       </div>
 
-      <div className="absolute top-30 right-40 z-10 text-right font-mono font-light">
+      <div
+        className="absolute z-10 font-mono font-light
+    text-center top-1/3 left-1/2 -translate-x-1/2
+    sm:text-right sm:top-30 sm:right-40 sm:left-auto sm:translate-x-0"
+      >
         {activeSection === "projects" && (
           <div>
             <h2 className="text-2xl font-semibold">Projects</h2>
@@ -67,7 +80,11 @@ export default function HomePage() {
         )}
       </div>
 
-      <div className="absolute bottom-30 left-40 z-10">
+      <div
+        className="absolute z-10
+    bottom-10 left-1/2 -translate-x-1/2 text-center
+    sm:bottom-30 sm:left-40 sm:translate-x-0 sm:text-left"
+      >
         {activeSection === "contact" && (
           <div>
             <h2 className="font-mono font-light text-2xl font-semibold">
