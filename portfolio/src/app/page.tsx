@@ -42,7 +42,7 @@ export default function HomePage() {
       <div
         className="absolute z-10 font-mono font-light text-lg sm:text-xl
     flex justify-center gap-6 top-16 left-1/2 -translate-x-1/2
-    sm:top-30 sm:left-41 sm:translate-x-0"
+    sm:justify-start sm:top-30 sm:left-41 sm:translate-x-0 sm:text-left"
       >
         <button
           onClick={() => setActiveSection("home")}
