@@ -81,16 +81,26 @@ export default function HomePage() {
         {activeSection === "projects" && (
           <div>
             <h2 className="text-2xl font-semibold">Projects</h2>
-            <a
-              className="text-2xl hover:text-gray-400 cursor-pointer transition-colors duration-500"
-              href="https://github.com/casparash/University-FYP"
-              target="_blank"
-            >
-              University FYP
-            </a>
-            <p className="text-sm">
-              Python-based sport-specific workout plan generator.
-            </p>
+            <div className="space-y-4 mt-2">
+              <a
+                className="text-2xl hover:underline hover:text-gray-400 cursor-pointer transition-colors duration-500"
+                href="https://github.com/casparash/University-FYP"
+                target="_blank"
+              >
+                University FYP
+              </a>
+              <p className="text-sm">
+                Python-based sport-specific workout plan generator.
+              </p>
+              <a
+                className="text-2xl hover:underline hover:text-gray-400 cursor-pointer transition-colors duration-500"
+                href="https://github.com/casparash/SentimentAnalysis"
+                target="_blank"
+              >
+                Sentiment Analysis
+              </a>
+              <p className="text-sm">Python-based sentiment analysis code.</p>
+            </div>
           </div>
         )}
       </div>
@@ -106,7 +116,7 @@ export default function HomePage() {
               Contact Me
             </h2>
             <a
-              className="font-mono font-light hover:text-gray-400 cursor-pointer transition-colors duration-500"
+              className="font-mono font-light hover:underline hover:text-gray-400 cursor-pointer transition-colors duration-500"
               href="https://www.linkedin.com/in/caspar-ashworth-2058ba253/"
               target="_blank"
             >
